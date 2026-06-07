@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <form th:action="@{/shohin_select_form}" method="post">
+    <label for="shohin_name">検索語句：</label>
+    <input type="text" name="keyword">    
+    <input type="submit"value="送信">
+  </form>
+  <br>
+  <br>
+  <table border="1">
+    <tr>
+        <td>商品ID</td>
+        <td>商品名</td>
+        <td>カテゴリ</td>
+        <td>仕入単価</td>
+        <td>販売単価</td>
+    </tr>
+    <tr th:each="shohin: ${shohin_list}">
+        <td th:text="${shohin.shohin_id}"></td>
+        <td th:text="${shohin.shohin_name}"></td>
+        <td th:text="${shohin.category}"></td>
+        <td th:text="${shohin.shiire_tanka}"></td>
+        <td th:text="${shohin.hanbai_tanka}"></td>
+    </tr> 
+</table>
+</body>
+</html>
